@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Fix</title>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        padding: 20px;
+    }
+
+    h2 {
+        color: red;
+    }
+
+    #btn2 {
+        background-color: rgb(61, 56, 56);
+        padding: 8px 15px;
+        color: white;
+        font-size: 1.2em;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+        border-radius: 5px;
+    }
+
+    #btn2:hover {
+        background-color: black;
+    }
+
+    #form2 {
+        box-shadow: 2px 5px 5px gray;
+        max-width: 400px;
+        margin: 20px auto;
+        background: white;
+        padding: 15px;
+
+        border-radius: 10px;
+    }
+
+    #form2 input {
+        padding: 8px;
+        width: 90%;
+        margin: 5px 0;
+        border: 1px solid gray;
+        border-radius: 5px;
+    }
+
+    #form2 button {
+        background-color: rgb(61, 56, 56);
+        color: white;
+        padding: 8px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        font-size: 1.1em;
+        border-radius: 5px;
+        transition: 0.3s;
+    }
+
+    #form2 button:hover {
+        background-color: black;
+    }
+
+    .para {
+        font-size: 1.1em;
+        margin: 10px 0;
+    }
+</style>
+</head>
+<body>
+    <h2 id="h22">Hello</h2>
+    <p class="para"></p>
+    <p class="para"></p>
+    <p>Click here to see magic:</p>
+    <button id="btn2">Click me</button>
+
+    <form id="form2">
+        <input type="text" id="user" placeholder="Enter your surname"><br>
+        <input type="email" id="meil" placeholder="Enter your email"><br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Username validation
+        const user2 = document.getElementById("user");
+        user2.oninput = function () {
+            if (user2.value.length < 5) {
+                user2.setCustomValidity("Username must be at least 5 characters.");
+            } else {
+                user2.setCustomValidity(""); 
+            }
+        };
+
+        // Email validation
+        const form22 = document.getElementById("form2");
+        const meil2 = document.getElementById("meil");
+
+        form22.onsubmit = function (event) {
+            if (!meil2.value) {
+                event.preventDefault();
+                alert("Email required");
+            }
+        };
+
+        // Button click event
+        const btn = document.getElementById("btn2");
+        btn.addEventListener("click", function () {
+            alert("Button clicked");
+        });
+
+        // Update paragraph text
+        const my_para = document.getElementsByClassName("para");
+        if (my_para.length > 0) {
+            my_para[0].innerHTML = "I LOVE CODING";
+            my_para[0].style.color = "blue";
+
+            if (my_para.length > 1) {
+                my_para[1].textContent = "Python & JavaScript are my best programming languages";
+            }
+        }
+    </script>
+</body>
+</html>
